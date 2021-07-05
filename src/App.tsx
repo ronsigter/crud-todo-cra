@@ -7,18 +7,14 @@ const queryClient = new QueryClient()
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Switch>
-        <QueryClientProvider client={queryClient}>
-          <Route path='/'>
-            <Todos />
-          </Route>
-          <Route path='/todo/:id'>
-            <Todo />
-          </Route>
-        </QueryClientProvider>
-      </Switch>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Switch>
+          <Route path='/' render={() => <Todos />} />
+          <Route path='/todo/:id' render={() => <Todo />} />
+        </Switch>
+      </Router>
+    </QueryClientProvider>
   )
 }
 
