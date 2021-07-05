@@ -1,3 +1,4 @@
+import Card from 'component/Card'
 import { LoaderProps } from './types'
 
 const Loader: React.FC<LoaderProps> = ({ status, items }) => {
@@ -20,8 +21,7 @@ const Loader: React.FC<LoaderProps> = ({ status, items }) => {
     <div data-testid='todos-success-state'>
       {items.map((item, key) => (
         <div key={key} data-testid='todos'>
-          <p>{item.title}</p>
-          <p>{item.description}</p>
+          <Card todo={item} />
         </div>
       ))}
     </div>
