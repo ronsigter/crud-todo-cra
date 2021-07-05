@@ -22,6 +22,8 @@
   "scripts": {
     "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
     "start": "craco start",
+    "json-server": "json-server --watch server/db.json --port 4000",
+    "dev": "concurrently \"yarn start\" \"yarn json-server\"",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
@@ -47,7 +49,10 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.4",
     "autoprefixer": "^9",
+    "concurrently": "^6.2.0",
+    "json-server": "^0.16.3",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }
