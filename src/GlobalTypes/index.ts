@@ -5,3 +5,5 @@ export type Todo = {
   creationDate: string
   isActive: boolean
 }
+
+export type Todos = Todo[] | null

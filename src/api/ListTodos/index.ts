@@ -1,6 +1,6 @@
-import { Todo } from 'types'
+import { Todos } from 'GlobalTypes'
 
-export const ListTodos = async (): Promise<Todo[] | null> => {
+export const ListTodos = async (): Promise<Todos> => {
   try {
     const response = await fetch(`/todos`)
     if (!response.ok) {
