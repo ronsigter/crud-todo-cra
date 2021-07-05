@@ -1,6 +1,7 @@
 import { waitFor, render, screen } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import nock from 'nock'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Todos from 'containers/Todos'
 import { todos as todosMock } from 'mock'
 
@@ -9,7 +10,9 @@ describe('Todos Container', () => {
     const queryClient = new QueryClient()
     render(
       <QueryClientProvider client={queryClient}>
-        <Todos />
+        <Router>
+          <Todos />
+        </Router>
       </QueryClientProvider>
     )
 

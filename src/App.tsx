@@ -10,7 +10,7 @@ const App: React.FC = () => {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
-          <Route path='/' render={() => <Todos />} />
+          <Route exact path='/' render={() => <Todos />} />
           <Route path='/todo/:id' render={() => <Todo />} />
         </Switch>
       </Router>

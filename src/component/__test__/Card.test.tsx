@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Card from 'component/Card'
 
 describe('Card Component', () => {
@@ -11,7 +12,11 @@ describe('Card Component', () => {
   }
 
   it('renders passed props', () => {
-    const screen = render(<Card todo={todo} />)
+    const screen = render(
+      <Router>
+        <Card todo={todo} />
+      </Router>
+    )
     const title = screen.getByTestId('card-title')
     const description = screen.getByTestId('card-description')
 
