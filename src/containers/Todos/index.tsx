@@ -7,7 +7,7 @@ const Todos: React.FC = () => {
   return (
     <section className='App h-screen w-full bg-green-500'>
       <div>Todo List</div>
-      <Loader status={status} items={todos} />
+      <Loader status={status} items={todos || []} />
     </section>
   )
 }
