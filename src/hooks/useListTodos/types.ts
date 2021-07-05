@@ -1,4 +1,4 @@
-import { Todos } from 'types'
+import { Todos } from 'GlobalTypes'
 
 export type UseListTodos = {
   status: 'idle' | 'error' | 'loading' | 'success'
