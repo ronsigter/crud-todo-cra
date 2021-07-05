@@ -13,4 +13,15 @@ describe('ListTodos API', () => {
 
     expect(todos).toEqual(todosMock)
   })
+
+  it('returns an error message', async () => {
+    nock(/localhost/)
+      .defaultReplyHeaders({ 'Access-Control-Allow-Origin': '*' })
+      .get(/todos/)
+      .reply(500, 'Something Went Wrong')
+
+    const todos = await ListTodos()
+
+    expect(todos).toEqual(null)
+  })
 })

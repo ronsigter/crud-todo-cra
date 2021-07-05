@@ -1,9 +1,15 @@
-export const ListTodos = async () => {
-  const response = await fetch(`/todos`)
-  if (!response.ok) {
-    throw new Error('Problem fetching data')
-  }
-  const todos = await response.json()
+import { Todo } from 'types'
 
-  return todos
+export const ListTodos = async (): Promise<Todo[] | null> => {
+  try {
+    const response = await fetch(`/todos`)
+    if (!response.ok) {
+      throw new Error('Problem fetching data')
+    }
+    const todos = await response.json()
+
+    return todos
+  } catch (error) {
+    return null
+  }
 }
