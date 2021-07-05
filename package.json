@@ -52,6 +52,7 @@
     "autoprefixer": "^9",
     "concurrently": "^6.2.0",
     "json-server": "^0.16.3",
+    "nock": "^13.1.1",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
