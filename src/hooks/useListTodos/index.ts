@@ -21,6 +21,7 @@ export const useListTodos = (): UseListTodos => {
     ListTodos,
     {
       onSuccess: (data) => setTodos(data),
+      initialData: [],
     }
   )
 
