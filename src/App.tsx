@@ -13,7 +13,7 @@ const App: React.FC = () => {
       <Router>
         <Switch>
           <Route exact path='/' render={() => <Todos />} />
-          <Route path='/todo/:id' render={() => <Todo />} />
+          <Route path='/todos/:id' render={() => <Todo />} />
           <Route path='/create-todo' render={() => <CreateTodo />} />
           <Route path='/update-todo' render={() => <UpdateTodo />} />
         </Switch>

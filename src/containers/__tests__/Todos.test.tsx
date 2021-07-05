@@ -18,7 +18,9 @@ describe('Todos Container', () => {
 
     // loading state
     const loadingContainer = screen.getByTestId('todos-loading-state')
+    const message = screen.getByTestId('todos-loading-state-message')
     expect(loadingContainer).toBeInTheDocument()
+    expect(message).toHaveTextContent('getting activity list')
   })
 
   it('renders loading-success state cycle', async () => {
@@ -44,6 +46,6 @@ describe('Todos Container', () => {
     await waitFor(() => screen.findByTestId('todos-blank-state'))
 
     const message = screen.getByTestId('todos-blank-state-message')
-    expect(message).toHaveTextContent('you dont have any movies')
+    expect(message).toHaveTextContent('you dont have any activities')
   })
 })

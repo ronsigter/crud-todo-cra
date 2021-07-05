@@ -6,14 +6,16 @@ const Loader: React.FC<LoaderProps> = ({ status, items }) => {
   if (status === 'loading')
     return (
       <div data-testid='todos-loading-state'>
-        <p data-testid='todos-loading-state-message'>getting movie list</p>
+        <p data-testid='todos-loading-state-message'>getting activity list</p>
       </div>
     )
   // blank state
   if (status === 'success' && items.length === 0)
     return (
       <div data-testid='todos-blank-state'>
-        <p data-testid='todos-blank-state-message'>you dont have any movies</p>
+        <p data-testid='todos-blank-state-message'>
+          you dont have any activities
+        </p>
       </div>
     )
   // success state

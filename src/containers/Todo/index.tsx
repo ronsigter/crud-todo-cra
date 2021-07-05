@@ -1,21 +1,14 @@
 import { useParams } from 'react-router-dom'
-import Card from 'component/Card'
 import { useGetTodo } from 'hooks'
+import Loader from 'containers/Todo/Loader'
 
 const Todo: React.FC = () => {
   const { id } = useParams<{ id: string }>()
-  const { todo } = useGetTodo(id)
-
-  if (!todo)
-    return (
-      <div>
-        <span>No such activity exists</span>
-      </div>
-    )
+  const { todo, status } = useGetTodo(id)
 
   return (
     <div>
-      <Card todo={todo} />
+      <Loader status={status} item={todo} />
     </div>
   )
 }
