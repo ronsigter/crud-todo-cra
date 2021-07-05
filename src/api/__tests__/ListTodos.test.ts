@@ -9,7 +9,17 @@ describe('ListTodos API', () => {
       .get(/todos/)
       .reply(200, todosMock)
 
-    const todos = await ListTodos()
+    const todos = await ListTodos({
+      queryKey: [
+        'todos',
+        {
+          filters: {
+            byActive: 'all',
+            term: '',
+          },
+        },
+      ],
+    })
 
     expect(todos).toEqual(todosMock)
   })
@@ -20,7 +30,17 @@ describe('ListTodos API', () => {
       .get(/todos/)
       .reply(500, 'Something Went Wrong')
 
-    const todos = await ListTodos()
+    const todos = await ListTodos({
+      queryKey: [
+        'todos',
+        {
+          filters: {
+            byActive: 'all',
+            term: '',
+          },
+        },
+      ],
+    })
 
     expect(todos).toEqual(null)
   })

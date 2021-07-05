@@ -1,3 +1,5 @@
+import { ListTodoFilterProps } from 'GlobalTypes'
+
 export type ListTodosParams = {
-  queryKey: [string, { id: number }]
+  queryKey: [string, { filters: ListTodoFilterProps }]
 }

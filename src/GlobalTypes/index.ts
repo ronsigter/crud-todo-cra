@@ -1,3 +1,8 @@
+export type ListTodoFilterProps = {
+  byActive: 'all' | true | false
+  term: string
+}
+
 export type Todo = {
   id: number
   title: string
