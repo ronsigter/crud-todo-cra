@@ -1,8 +1,17 @@
+import { useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormProps } from './types'
 
-const Form: React.FC<FormProps> = ({ onSubmit }) => {
-  const { register, handleSubmit } = useForm()
+const Form: React.FC<FormProps> = ({ onSubmit, todo }) => {
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: useMemo(() => {
+      return todo
+    }, [todo]),
+  })
+
+  useEffect(() => {
+    reset(todo)
+  }, [todo, reset])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

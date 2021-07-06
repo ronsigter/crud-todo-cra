@@ -14,7 +14,7 @@ const App: React.FC = () => {
           <Route exact path='/' render={() => <Todos />} />
           <Route path='/todos/:id' render={() => <Todo />} />
           <Route path='/create-todo' render={() => <CreateTodo />} />
-          <Route path='/update-todo' render={() => <UpdateTodo />} />
+          <Route path='/edit/:id' render={() => <UpdateTodo />} />
         </Switch>
       </Router>
     </QueryClientProvider>
