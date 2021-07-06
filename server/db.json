@@ -1,13 +1,6 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Swimming",
-      "description": "Swimming party at my house!",
-      "creationDate": "01/07/2021, 9:42:52 pm",
-      "isActive": true
-    },
-    {
       "id": 2,
       "title": "Sleep",
       "description": "Need to recharge",
