@@ -10,14 +10,7 @@ describe('DeleteTodo API', () => {
         message: 'Activity Deleted',
       })
 
-    const response = await DeleteTodo({
-      queryKey: [
-        'todo',
-        {
-          id: 1,
-        },
-      ],
-    })
+    const response = await DeleteTodo(1)
 
     expect(response).toEqual({
       message: 'Activity Deleted',
@@ -30,14 +23,7 @@ describe('DeleteTodo API', () => {
       .delete(/todo/)
       .reply(500, 'Something Went Wrong')
 
-    const todos = await DeleteTodo({
-      queryKey: [
-        'todos',
-        {
-          id: 1,
-        },
-      ],
-    })
+    const todos = await DeleteTodo(1)
 
     expect(todos).toEqual(null)
   })

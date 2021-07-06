@@ -1,10 +1,6 @@
-import { DeleteTodoParams } from './types'
-
 export const DeleteTodo = async (
-  params: DeleteTodoParams
+  id: string | number
 ): Promise<{ message: string }> => {
-  const [, { id }] = params.queryKey
-
   try {
     const response = await fetch(`/todos/${id}`, {
       method: 'DELETE',
