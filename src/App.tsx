@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClientProvider } from 'react-query'
 import Todos from 'containers/Todos'
 import Todo from 'containers/Todo'
 import CreateTodo from 'containers/CreateTodo'
 import UpdateTodo from 'containers/UpdateTodo'
-
-const queryClient = new QueryClient()
+import { queryClient } from 'services/queryClient'
 
 const App: React.FC = () => {
   return (

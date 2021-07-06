@@ -34,7 +34,7 @@ describe('useGetTodo custom hook', () => {
     // intercept request from db
     nock(/localhost/)
       .defaultReplyHeaders({ 'Access-Control-Allow-Origin': '*' })
-      .put('/todos/2')
+      .delete('/todos/2')
       .reply(200, todosMock[1])
 
     const { result, waitFor } = hookWrapper()

@@ -8,7 +8,7 @@ export const CreateTodo = async (todo: Todo): Promise<Todo> => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ todo }),
+      body: JSON.stringify(todo),
     })
     if (!response.ok) {
       throw new Error('Problem fetching data')

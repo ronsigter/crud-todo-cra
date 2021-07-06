@@ -1,10 +1,9 @@
 import { DeleteTodo } from 'api'
-import { useMutation, useQueryClient } from 'react-query'
+import { useMutation } from 'react-query'
 import { UseDeleteTodo } from './types'
+import { queryClient } from 'services/queryClient'
 
 export const useDeleteTodo = (): UseDeleteTodo => {
-  const queryClient = useQueryClient()
-
   const { mutate, status, isError } = useMutation(DeleteTodo, {
     onSuccess: () => {
       queryClient.invalidateQueries('todos')
