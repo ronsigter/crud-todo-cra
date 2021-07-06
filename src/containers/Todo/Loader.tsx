@@ -1,4 +1,3 @@
-import Card from 'component/Card'
 import { LoaderProps } from './types'
 
 const Loader: React.FC<LoaderProps> = ({ status, item }) => {

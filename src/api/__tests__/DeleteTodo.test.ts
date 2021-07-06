@@ -5,12 +5,12 @@ describe('DeleteTodo API', () => {
   it('returns a success message', async () => {
     nock(/localhost/)
       .defaultReplyHeaders({ 'Access-Control-Allow-Origin': '*' })
-      .delete(/todo/)
+      .delete('/todos/1')
       .reply(200, {
         message: 'Activity Deleted',
       })
 
-    const response = await DeleteTodo(1)
+    const response = await DeleteTodo([1])
 
     expect(response).toEqual({
       message: 'Activity Deleted',
@@ -20,10 +20,10 @@ describe('DeleteTodo API', () => {
   it('returns an error message', async () => {
     nock(/localhost/)
       .defaultReplyHeaders({ 'Access-Control-Allow-Origin': '*' })
-      .delete(/todo/)
+      .delete('/todos/2')
       .reply(500, 'Something Went Wrong')
 
-    const todos = await DeleteTodo(1)
+    const todos = await DeleteTodo([2])
 
     expect(todos).toEqual(null)
   })

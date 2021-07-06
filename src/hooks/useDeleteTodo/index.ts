@@ -10,7 +10,7 @@ export const useDeleteTodo = (): UseDeleteTodo => {
     },
   })
 
-  const deleteTodo = (id: string) => mutate(id)
+  const deleteTodo = (ids: (string | number)[]) => mutate(ids)
 
   return {
     deleteTodo,
