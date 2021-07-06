@@ -1,11 +1,3 @@
 {
-  "todos": [
-    {
-      "title": "asdfasfdsfsdaf",
-      "description": "asdfdasfdsafdsafsdfasd",
-      "id": "ab0a6c86-600b-4a69-9e76-39691995d44b",
-      "isActive": false,
-      "creationDate": "07/07/2021, 1:26:08 am"
-    }
-  ]
+  "todos": []
 }
