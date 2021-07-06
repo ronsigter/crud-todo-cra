@@ -2,7 +2,7 @@ import nock from 'nock'
 import { DeleteTodo } from 'api'
 
 describe('DeleteTodo API', () => {
-  it('returns a list of todos', async () => {
+  it('returns a success message', async () => {
     nock(/localhost/)
       .defaultReplyHeaders({ 'Access-Control-Allow-Origin': '*' })
       .delete(/todo/)

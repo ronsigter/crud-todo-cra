@@ -13,6 +13,13 @@
       "description": "No description",
       "creationDate": "03/09/2021, 11:42:52 pm",
       "isActive": true
+    },
+    {
+      "id": 1,
+      "title": "Swimming",
+      "description": "Swimming for refreshment",
+      "isActive": true,
+      "creationDate": "06/07/2021"
     }
   ]
 }

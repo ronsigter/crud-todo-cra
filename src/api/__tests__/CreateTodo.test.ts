@@ -1,21 +1,16 @@
 import nock from 'nock'
-import { GetTodo } from 'api'
+import { CreateTodo } from 'api'
 import { todos as todosMock } from 'mock'
 
-describe('GetTodo API', () => {
-  it('returns a todo', async () => {
+describe('CreateTodo API', () => {
+  it('returns created todo', async () => {
     nock(/localhost/)
       .defaultReplyHeaders({ 'Access-Control-Allow-Origin': '*' })
-      .get('/todos/1')
-      .reply(200, todosMock[1])
+      .post('/todos/')
+      .reply(201, todosMock[1])
 
-    const todo = await GetTodo({
-      queryKey: [
-        'todos',
-        {
-          id: 1,
-        },
-      ],
+    const todo = await CreateTodo({
+      queryKey: ['todos', todosMock[1]],
     })
 
     expect(todo).toEqual(todosMock[1])
@@ -24,16 +19,11 @@ describe('GetTodo API', () => {
   it('returns an error message', async () => {
     nock(/localhost/)
       .defaultReplyHeaders({ 'Access-Control-Allow-Origin': '*' })
-      .get('/todos/1')
+      .post('/todos/')
       .reply(500, 'Something Went Wrong')
 
-    const todo = await GetTodo({
-      queryKey: [
-        'todos',
-        {
-          id: 1,
-        },
-      ],
+    const todo = await CreateTodo({
+      queryKey: ['todos', todosMock[1]],
     })
 
     expect(todo).toEqual(null)
