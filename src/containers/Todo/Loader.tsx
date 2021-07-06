@@ -20,7 +20,10 @@ const Loader: React.FC<LoaderProps> = ({ status, item }) => {
   return (
     <div data-testid='todo-success-state'>
       <div data-testid='todo'>
-        <Card todo={item} />
+        <div>
+          <p data-testid='card-title'>{item?.title}</p>
+          <p data-testid='card-description'>{item?.description}</p>
+        </div>
       </div>
     </div>
   )
