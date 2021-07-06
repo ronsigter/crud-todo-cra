@@ -1,5 +1,4 @@
 import { Todo } from 'GlobalTypes'
-import { CreateTodoParams } from './types'
 
 export const CreateTodo = async (todo: Todo): Promise<Todo> => {
   try {
