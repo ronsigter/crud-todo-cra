@@ -12,6 +12,7 @@ export const useUpdateTodo = (): UseUpdateTodo => {
     onSuccess: (data) => {
       setTodo(data)
       queryClient.invalidateQueries('todos')
+      queryClient.invalidateQueries(['todo', { id: data.id }])
     },
   })
 
