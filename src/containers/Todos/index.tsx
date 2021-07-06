@@ -36,8 +36,8 @@ const Todos: React.FC = () => {
           <label>Filter: </label>
           <select onChange={(e) => handleFilterStatus(e.target.value)}>
             <option value='all'>All Activities</option>
-            <option value='true'>Finished Activities</option>
-            <option value='false'>Current Activities</option>
+            <option value='false'>Finished Activities</option>
+            <option value='true'>Current Activities</option>
           </select>
         </div>
       </div>

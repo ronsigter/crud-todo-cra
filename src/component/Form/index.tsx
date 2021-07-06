@@ -2,11 +2,7 @@ import { useForm } from 'react-hook-form'
 import { FormProps } from './types'
 
 const Form: React.FC<FormProps> = ({ onSubmit }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm()
+  const { register, handleSubmit } = useForm()
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
