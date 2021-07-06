@@ -25,6 +25,7 @@
     "start": "craco start",
     "json-server": "json-server --watch server/db.json --port 4000",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "lint": "eslint '**/*.{ts,tsx}' --fix",
     "dev": "concurrently \"yarn start\" \"yarn json-server\"",
     "build": "craco build",
     "test": "craco test",
