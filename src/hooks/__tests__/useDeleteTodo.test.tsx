@@ -1,8 +1,7 @@
 import { renderHook, RenderResult, WaitFor } from '@testing-library/react-hooks'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import nock from 'nock'
-import { useDeleteTodo } from 'hooks'
-import { UseDeleteTodo } from 'hooks/useDeleteTodo/types'
+import { useDeleteTodo, UseDeleteTodo } from 'hooks'
 import { todos as todosMock } from 'mock'
 import { act } from 'react-dom/test-utils'
 
@@ -41,7 +40,7 @@ describe('useGetTodo custom hook', () => {
 
     // trigger function
     act(() => {
-      result.current.deleteTodo(todosMock[1].id)
+      result.current.deleteTodo([todosMock[1].id])
     })
 
     // wait for success

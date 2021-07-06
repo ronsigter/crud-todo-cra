@@ -1,8 +1,7 @@
 import { renderHook, RenderResult, WaitFor } from '@testing-library/react-hooks'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import nock from 'nock'
-import { useListTodos } from 'hooks'
-import { UseListTodos } from 'hooks/useListTodos/types'
+import { useListTodos, UseListTodos } from 'hooks'
 import { todos as todosMock } from 'mock'
 
 const queryClient = new QueryClient()

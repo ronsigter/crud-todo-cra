@@ -1,8 +1,7 @@
 import { renderHook, RenderResult, WaitFor } from '@testing-library/react-hooks'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import nock from 'nock'
-import { useUpdateTodo } from 'hooks'
-import { UseUpdateTodo } from 'hooks/useUpdateTodo/types'
+import { useUpdateTodo, UseUpdateTodo } from 'hooks'
 import { todos as todosMock } from 'mock'
 import { act } from 'react-dom/test-utils'
 

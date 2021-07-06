@@ -1,8 +1,7 @@
 import { useToasts } from 'react-toast-notifications'
 import { useParams, useHistory } from 'react-router-dom'
 import { useGetTodo, useUpdateTodo } from 'hooks'
-import Form from 'component/Form'
-import { InfoProps } from 'component/Form/types'
+import Form, { InfoProps } from 'component/Form'
 
 const UpdateTodo = () => {
   const { id } = useParams<{ id: string }>()
