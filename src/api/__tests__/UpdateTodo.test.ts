@@ -9,9 +9,7 @@ describe('UpdateTodo API', () => {
       .put('/todos/2')
       .reply(200, todosMock[1])
 
-    const todo = await UpdateTodo({
-      queryKey: ['todos', todosMock[1]],
-    })
+    const todo = await UpdateTodo(todosMock[1])
 
     expect(todo).toEqual(todosMock[1])
   })
@@ -22,9 +20,7 @@ describe('UpdateTodo API', () => {
       .put('/todos/2')
       .reply(500, 'Something Went Wrong')
 
-    const todo = await UpdateTodo({
-      queryKey: ['todos', todosMock[1]],
-    })
+    const todo = await UpdateTodo(todosMock[1])
 
     expect(todo).toEqual(null)
   })

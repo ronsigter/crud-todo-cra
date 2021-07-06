@@ -9,9 +9,7 @@ describe('CreateTodo API', () => {
       .post('/todos/')
       .reply(201, todosMock[1])
 
-    const todo = await CreateTodo({
-      queryKey: ['todos', todosMock[1]],
-    })
+    const todo = await CreateTodo(todosMock[1])
 
     expect(todo).toEqual(todosMock[1])
   })
@@ -22,9 +20,7 @@ describe('CreateTodo API', () => {
       .post('/todos/')
       .reply(500, 'Something Went Wrong')
 
-    const todo = await CreateTodo({
-      queryKey: ['todos', todosMock[1]],
-    })
+    const todo = await CreateTodo(todosMock[1])
 
     expect(todo).toEqual(null)
   })

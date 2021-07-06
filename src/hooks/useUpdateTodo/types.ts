@@ -1,8 +1,8 @@
 import { Todo } from 'GlobalTypes'
 import { MutationStatus } from 'react-query'
 
-export type UseCreateTodo = {
-  createTodo: (todo: Todo) => void
+export type UseUpdateTodo = {
+  updateTodo: (todo: Todo) => void
   status: MutationStatus
   isError: boolean
   todo: Todo
