@@ -1,5 +1,6 @@
 import { waitFor, render, screen } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ToastProvider } from 'react-toast-notifications'
 import nock from 'nock'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Todos from 'containers/Todos'
@@ -10,9 +11,11 @@ describe('Todos Container', () => {
     const queryClient = new QueryClient()
     render(
       <QueryClientProvider client={queryClient}>
-        <Router>
-          <Todos />
-        </Router>
+        <ToastProvider>
+          <Router>
+            <Todos />
+          </Router>
+        </ToastProvider>
       </QueryClientProvider>
     )
 

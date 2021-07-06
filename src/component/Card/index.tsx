@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
-import { CardProps } from './types'
+import { Todo } from 'GlobalTypes'
+
+type CardProps = {
+  todo: Todo
+}
 
 const Card: React.FC<CardProps> = ({ todo }) => {
   return (

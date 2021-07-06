@@ -1,4 +1,10 @@
-import { LoaderProps } from './types'
+import { Todo } from 'GlobalTypes'
+import { MutationStatus } from 'react-query'
+
+export type LoaderProps = {
+  status: MutationStatus
+  item: Todo
+}
 
 const Loader: React.FC<LoaderProps> = ({ status, item }) => {
   // loading state

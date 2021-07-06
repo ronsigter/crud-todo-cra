@@ -1,5 +1,8 @@
-import { Todos } from 'GlobalTypes'
-import { ListTodosParams } from './types'
+import { ListTodoFilterProps, Todos } from 'GlobalTypes'
+
+type ListTodosParams = {
+  queryKey: [string, { filters: ListTodoFilterProps }]
+}
 
 export const ListTodos = async (params: ListTodosParams): Promise<Todos> => {
   const [

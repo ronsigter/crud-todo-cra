@@ -1,11 +1,16 @@
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { useListTodos } from 'hooks'
+import { useToasts } from 'react-toast-notifications'
+import { useDeleteTodo, useListTodos } from 'hooks'
 import Loader from './Loader'
 
 const Todos: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState<boolean | 'all'>('all')
-  const { todos, status, setFilters } = useListTodos()
+  const [ids, setIds] = useState([])
+  const { todos, status: todosStatus, setFilters } = useListTodos()
+  const { deleteTodo, status: deleteStatus } = useDeleteTodo()
+  const { addToast } = useToasts()
 
   const handleFilterStatus = (statusFilter: string): void => {
     if (statusFilter === 'all') setStatusFilter('all')
@@ -17,12 +22,29 @@ const Todos: React.FC = () => {
     setSearchTerm(term)
   }
 
+  const handleOnChange = (isChecked: boolean, id: string | number) => {
+    if (isChecked) {
+      if (!ids.includes(id)) setIds([...ids, id])
+    } else {
+      setIds(ids.filter((dataId) => !(dataId === id)))
+    }
+  }
+
+  const handleDelete = () => deleteTodo(ids)
+
   useEffect(() => {
     setFilters({
       byActive: statusFilter,
       term: searchTerm,
     })
   }, [setFilters, statusFilter, searchTerm])
+
+  useEffect(() => {
+    if (deleteStatus === 'success') {
+      setIds([])
+      addToast('Activity Deleted Successfully', { appearance: 'success' })
+    }
+  }, [deleteStatus, addToast])
 
   return (
     <section className='App h-screen w-full bg-green-500'>
@@ -33,6 +55,12 @@ const Todos: React.FC = () => {
           <input onChange={(e) => handleSearchTerm(e.target.value)} />
         </div>
         <div>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+        <div>
+          <Link to='/create-todo'>Add Activity</Link>
+        </div>
+        <div>
           <label>Filter: </label>
           <select onChange={(e) => handleFilterStatus(e.target.value)}>
             <option value='all'>All Activities</option>
@@ -41,7 +69,12 @@ const Todos: React.FC = () => {
           </select>
         </div>
       </div>
-      <Loader status={status} items={todos || []} />
+      <Loader
+        status={todosStatus}
+        items={todos || []}
+        onChange={handleOnChange}
+        ids={ids}
+      />
     </section>
   )
 }

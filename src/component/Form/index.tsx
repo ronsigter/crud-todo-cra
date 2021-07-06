@@ -1,6 +1,18 @@
 import { useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
-import { FormProps } from './types'
+import { Todo } from 'GlobalTypes'
+import { MutationStatus } from 'react-query'
+
+export type InfoProps = {
+  title: string
+  description: string
+}
+
+export type FormProps = {
+  onSubmit: (info: InfoProps) => void
+  status: MutationStatus
+  todo?: Todo
+}
 
 const Form: React.FC<FormProps> = ({ onSubmit, todo }) => {
   const { register, handleSubmit, reset } = useForm({

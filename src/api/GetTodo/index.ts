@@ -1,5 +1,8 @@
 import { Todo } from 'GlobalTypes'
-import { GetTodoParams } from './types'
+
+type GetTodoParams = {
+  queryKey: [string, { id: number | string }]
+}
 
 export const GetTodo = async (params: GetTodoParams): Promise<Todo> => {
   const [, { id }] = params.queryKey

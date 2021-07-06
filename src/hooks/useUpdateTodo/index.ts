@@ -2,8 +2,15 @@ import { UpdateTodo } from 'api'
 import { useState } from 'react'
 import { useMutation } from 'react-query'
 import { Todo } from 'GlobalTypes'
-import { UseUpdateTodo } from './types'
 import { queryClient } from 'services/queryClient'
+import { MutationStatus } from 'react-query'
+
+export type UseUpdateTodo = {
+  updateTodo: (todo: Todo) => void
+  status: MutationStatus
+  isError: boolean
+  todo: Todo
+}
 
 export const useUpdateTodo = (): UseUpdateTodo => {
   const [todo, setTodo] = useState<Todo>(null)

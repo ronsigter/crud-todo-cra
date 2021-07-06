@@ -1,10 +1,17 @@
 import { CreateTodo } from 'api'
 import { useState } from 'react'
 import { useMutation } from 'react-query'
-import { Todo } from 'GlobalTypes'
-import { UseCreateTodo } from './types'
 import { queryClient } from 'services/queryClient'
 import { v4 as uuidv4 } from 'uuid'
+import { Todo } from 'GlobalTypes'
+import { MutationStatus } from 'react-query'
+
+export type UseCreateTodo = {
+  createTodo: (todo: Partial<Todo>) => void
+  status: MutationStatus
+  isError: boolean
+  todo: Todo
+}
 
 export const useCreateTodo = (): UseCreateTodo => {
   const [todo, setTodo] = useState<Todo>(null)

@@ -1,6 +1,5 @@
 import { useToasts } from 'react-toast-notifications'
-import Form from 'component/Form'
-import { InfoProps } from 'component/Form/types'
+import Form, { InfoProps } from 'component/Form'
 import { useHistory } from 'react-router-dom'
 import { useCreateTodo } from 'hooks'
 
