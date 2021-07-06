@@ -1,9 +1,7 @@
 import { Todo } from 'GlobalTypes'
 import { CreateTodoParams } from './types'
 
-export const CreateTodo = async (params: CreateTodoParams): Promise<Todo> => {
-  const [, todo] = params.queryKey
-
+export const CreateTodo = async (todo: Todo): Promise<Todo> => {
   try {
     const response = await fetch(`/todos/`, {
       method: 'POST',
