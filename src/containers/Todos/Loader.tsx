@@ -31,15 +31,27 @@ const Loader: React.FC<LoaderProps> = ({ status, items, onChange, ids }) => {
   // blank state
   if (status === 'success' && items.length === 0)
     return (
-      <div data-testid='todos-blank-state'>
+      <div
+        className='flex flex-col justify-center items-center h-80'
+        data-testid='todos-blank-state'
+      >
+        <img src='/blank.png' alt='blank' />
         <p data-testid='todos-blank-state-message'>
-          you dont have any activities
+          What tasks are on your mind?
         </p>
+        <Link to='/create-todo'>
+          <div className='cursor-pointer mt-4 px-4 py-2 bg-red-500 text-white'>
+            Add a task
+          </div>
+        </Link>
       </div>
     )
   // success state
   return (
-    <div className='space-y-6' data-testid='todos-success-state'>
+    <div
+      className='absolute inset-0 overflow-auto h-full space-y-6 pb-80'
+      data-testid='todos-success-state'
+    >
       {items.map((item, key) => (
         <div
           key={key}

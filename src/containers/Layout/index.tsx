@@ -3,8 +3,11 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <div
-      className='w-full p-10 flex flex-col items-center justify-center'
-      style={{ backgroundImage: 'url("/bg.png")' }}
+      className='w-full h-screen p-10 flex flex-col items-center justify-center'
+      style={{
+        backgroundImage: 'url("/bg.png")',
+        backgroundRepeat: 'repeat-x',
+      }}
     >
       <div className=' w-full max-w-md flex mb-4'>
         <div className='pr-2'>
@@ -20,7 +23,7 @@ const Layout: React.FC = ({ children }) => {
           </p>
         </div>
       </div>
-      <div className='w-full'>{children}</div>
+      <div className='w-full h-full'>{children}</div>
     </div>
   )
 }

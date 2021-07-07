@@ -37,7 +37,10 @@ const Todos: React.FC = () => {
     else setIds([])
   }
 
-  const handleDelete = () => deleteTodo(ids)
+  const handleDelete = () => {
+    deleteTodo(ids)
+    setIds([])
+  }
 
   useEffect(() => {
     setFilters({
@@ -54,26 +57,19 @@ const Todos: React.FC = () => {
   }, [deleteStatus, addToast])
 
   return (
-    <section>
-      {/* <div>
+    <section className='flex flex-col h-full '>
+      <div>
         <div>
-          <label>search: </label>
-          <input onChange={(e) => handleSearchTerm(e.target.value)} />
+          <input
+            className='w-full px-4 py-2 rounded-md bg-gray-200'
+            placeholder='Search activity...'
+            onChange={(e) => handleSearchTerm(e.target.value)}
+            disabled={todos?.length === 0}
+          />
         </div>
-        <div>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
-        <div>
-          <label>Filter: </label>
-          <select onChange={(e) => handleFilterStatus(e.target.value)}>
-            <option value='all'>All Activities</option>
-            <option value='false'>Finished Activities</option>
-            <option value='true'>Current Activities</option>
-          </select>
-        </div>
-      </div> */}
+      </div>
 
-      <div className='w-full flex items-center px-4  mb-4 h-20 border-b-2 border-gray-300'>
+      <div className='flex-grow-0 w-full flex items-center px-4  mb-4 h-20 border-b-2 border-gray-300'>
         <input
           type='checkbox'
           onChange={(e) => handleAddAllIds(e.target.checked)}
@@ -96,13 +92,15 @@ const Todos: React.FC = () => {
           </select>
         </div>
       </div>
-      <Loader
-        status={todosStatus}
-        items={todos || []}
-        onChange={handleOnAddId}
-        ids={ids}
-      />
-      {todos?.length !== 0 && (
+      <div className='relative flex-grow '>
+        <Loader
+          status={todosStatus}
+          items={todos || []}
+          onChange={handleOnAddId}
+          ids={ids}
+        />
+      </div>
+      {todos?.length !== 0 && todos !== null && (
         <Link to='/create-todo'>
           <AddButton />
         </Link>
