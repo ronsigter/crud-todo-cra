@@ -62,13 +62,17 @@ const Loader: React.FC<LoaderProps> = ({
       <div
         className='flex flex-col justify-center items-center h-80'
         data-testid='todos-blank-state'
+        data-cy='todos-blank-state'
       >
         <img src='/blank.png' alt='blank' />
         <p data-testid='todos-blank-state-message'>
           What tasks are on your mind?
         </p>
         <Link to='/create-todo'>
-          <div className='cursor-pointer mt-4 px-4 py-2 bg-red-500 text-white'>
+          <div
+            className='cursor-pointer mt-4 px-4 py-2 bg-red-500 text-white'
+            data-cy='create-button'
+          >
             Add a task
           </div>
         </Link>
@@ -79,6 +83,7 @@ const Loader: React.FC<LoaderProps> = ({
     <div
       className='absolute inset-0 overflow-auto h-full space-y-6 pb-80'
       data-testid='todos-success-state'
+      data-cy='todos-success-state'
     >
       {items.map((item, key) => (
         <div

@@ -36,6 +36,7 @@ const Form: React.FC<FormProps> = ({ onSubmit, todo }) => {
           id='title'
           name='title'
           {...register('title', { required: true })}
+          data-cy='title-input'
         />
       </div>
       <div className='flex justify-between'>
@@ -45,12 +46,14 @@ const Form: React.FC<FormProps> = ({ onSubmit, todo }) => {
           id='description'
           name='description'
           {...register('description', { required: true })}
+          data-cy='description-input'
         />
       </div>
       <div className='w-full'>
         <button
           className='w-full py-2 px-4 bg-green-500 font-bold text-white'
           type='submit'
+          data-cy='submit-button'
         >
           Add Activity
         </button>
