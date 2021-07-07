@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Card from 'component/Card'
 import { Todos } from 'GlobalTypes'
 import { MutationStatus } from 'react-query'
+import LoadingIcon from 'component/LoadingIcon'
 
 type LoaderProps = {
   status: MutationStatus
@@ -14,8 +15,17 @@ const Loader: React.FC<LoaderProps> = ({ status, items, onChange, ids }) => {
   // loading state
   if (status === 'loading')
     return (
-      <div data-testid='todos-loading-state'>
-        <p data-testid='todos-loading-state-message'>getting activity list</p>
+      <div
+        className='flex flex-col justify-center items-center h-80'
+        data-testid='todos-loading-state'
+      >
+        <LoadingIcon />
+        <p
+          className='capitalize pt-2 font-semibold'
+          data-testid='todos-loading-state-message'
+        >
+          getting activity list
+        </p>
       </div>
     )
   // blank state

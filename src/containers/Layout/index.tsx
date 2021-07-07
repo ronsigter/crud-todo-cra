@@ -2,7 +2,10 @@ const Layout: React.FC = ({ children }) => {
   const date = new Date()
 
   return (
-    <div className='w-full p-10 flex flex-col items-center justify-center'>
+    <div
+      className='w-full p-10 flex flex-col items-center justify-center'
+      style={{ backgroundImage: 'url("/bg.png")' }}
+    >
       <div className=' w-full max-w-md flex mb-4'>
         <div className='pr-2'>
           <p className='text-5xl'>{date.getDate()}</p>

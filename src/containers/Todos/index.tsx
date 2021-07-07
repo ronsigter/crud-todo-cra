@@ -4,6 +4,7 @@ import { useToasts } from 'react-toast-notifications'
 import { useDeleteTodo, useListTodos } from 'hooks'
 import Loader from './Loader'
 import AddButton from 'component/AddButton'
+import DeleteButton from 'component/DeleteButton'
 
 const Todos: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -23,12 +24,17 @@ const Todos: React.FC = () => {
     setSearchTerm(term)
   }
 
-  const handleOnChange = (isChecked: boolean, id: string | number) => {
+  const handleOnAddId = (isChecked: boolean, id: string | number) => {
     if (isChecked) {
       if (!ids.includes(id)) setIds([...ids, id])
     } else {
       setIds(ids.filter((dataId) => !(dataId === id)))
     }
+  }
+
+  const handleAddAllIds = (isChecked: boolean) => {
+    if (isChecked) setIds(todos.map(({ id }) => id))
+    else setIds([])
   }
 
   const handleDelete = () => deleteTodo(ids)
@@ -48,7 +54,7 @@ const Todos: React.FC = () => {
   }, [deleteStatus, addToast])
 
   return (
-    <section className=''>
+    <section>
       {/* <div>
         <div>
           <label>search: </label>
@@ -56,9 +62,6 @@ const Todos: React.FC = () => {
         </div>
         <div>
           <button onClick={handleDelete}>Delete</button>
-        </div>
-        <div>
-          <Link to='/create-todo'>Add Activity</Link>
         </div>
         <div>
           <label>Filter: </label>
@@ -69,15 +72,41 @@ const Todos: React.FC = () => {
           </select>
         </div>
       </div> */}
+
+      <div className='w-full flex items-center px-4  mb-4 h-20 border-b-2 border-gray-300'>
+        <input
+          type='checkbox'
+          onChange={(e) => handleAddAllIds(e.target.checked)}
+          checked={ids.length === todos?.length}
+          disabled={todos?.length === 0}
+        />
+        {ids.length !== 0 && (
+          <div className='ml-8' onClick={handleDelete}>
+            <DeleteButton />
+          </div>
+        )}
+        <div className='ml-auto'>
+          <select
+            className='px-4 py-2 rounded-md bg-gray-200'
+            onChange={(e) => handleFilterStatus(e.target.value)}
+          >
+            <option value='all'>All Activities</option>
+            <option value='false'>Finished Activities</option>
+            <option value='true'>Current Activities</option>
+          </select>
+        </div>
+      </div>
       <Loader
         status={todosStatus}
         items={todos || []}
-        onChange={handleOnChange}
+        onChange={handleOnAddId}
         ids={ids}
       />
-      <Link to='/create-todo'>
-        <AddButton />
-      </Link>
+      {todos?.length !== 0 && (
+        <Link to='/create-todo'>
+          <AddButton />
+        </Link>
+      )}
     </section>
   )
 }
