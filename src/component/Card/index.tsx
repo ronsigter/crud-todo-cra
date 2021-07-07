@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { Todo } from 'GlobalTypes'
 
 type CardProps = {
@@ -9,9 +8,7 @@ const Card: React.FC<CardProps> = ({ todo }) => {
   return (
     <div className='flex w-full justify-between'>
       <div className='flex-1 flex flex-col min-w-0 pr-2'>
-        <Link to={`/todos/${todo?.id}`}>
-          <p data-testid='card-title'>{todo?.title}</p>
-        </Link>
+        <p data-testid='card-title'>{todo?.title}</p>
         <p className='truncate ' data-testid='card-description'>
           {todo?.description}
         </p>

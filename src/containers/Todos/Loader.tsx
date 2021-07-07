@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Card from 'component/Card'
 import { Todos } from 'GlobalTypes'
 import { MutationStatus } from 'react-query'
@@ -33,7 +34,7 @@ const Loader: React.FC<LoaderProps> = ({ status, items, onChange, ids }) => {
         <div
           key={key}
           data-testid='todos'
-          className='w-full flex rounded-md shadow px-4 py-4'
+          className='w-full flex rounded-md shadow px-4 py-4 hover:shadow-lg'
         >
           <input
             type='checkbox'
@@ -41,7 +42,9 @@ const Loader: React.FC<LoaderProps> = ({ status, items, onChange, ids }) => {
             checked={ids.includes(item.id)}
           />
           <div className='pl-4 w-full'>
-            <Card todo={item} />
+            <Link to={`/todos/${item?.id}`}>
+              <Card todo={item} />
+            </Link>
           </div>
         </div>
       ))}
