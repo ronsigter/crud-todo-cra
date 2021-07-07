@@ -90,11 +90,13 @@ const Loader: React.FC<LoaderProps> = ({
           key={key}
           data-testid='todos'
           className='w-full flex rounded-md shadow px-4 py-4 hover:shadow-lg'
+          data-cy={`todos-${item.id}`}
         >
           <input
             type='checkbox'
             onChange={(e) => onChange(e.target.checked, item.id)}
             checked={ids.includes(item.id)}
+            data-cy={`todos-${key}-checkbox`}
           />
           <div className='pl-4 w-full'>
             <Link to={`/todos/${item?.id}`}>

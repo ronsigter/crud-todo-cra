@@ -73,9 +73,10 @@ const Todos: React.FC = () => {
           onChange={(e) => handleAddAllIds(e.target.checked)}
           checked={ids.length === todos?.length}
           disabled={todos?.length === 0}
+          data-cy='select-all-button'
         />
         {ids.length !== 0 && (
-          <div className='ml-8' onClick={handleDelete}>
+          <div className='ml-8' onClick={handleDelete} data-cy='delete-button'>
             <DeleteButton />
           </div>
         )}
