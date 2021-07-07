@@ -1,0 +1,20 @@
+name: type-check
+
+on: [push]
+jobs:
+  typeCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies 📥
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install
+      - name: Run Typescript Checks 🎨
+        run: yarn type-check
+        env:
+          CI: true
