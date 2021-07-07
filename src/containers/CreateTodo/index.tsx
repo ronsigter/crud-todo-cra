@@ -15,7 +15,7 @@ const CreateTodo = () => {
   }
 
   return (
-    <div>
+    <div className='h-full flex justify-center pt-10'>
       <Form onSubmit={handleOnSubmit} status={status} />
     </div>
   )
