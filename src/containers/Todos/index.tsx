@@ -47,7 +47,7 @@ const Todos: React.FC = () => {
   }, [deleteStatus, addToast])
 
   return (
-    <section className='App h-screen w-full bg-green-500'>
+    <section className=''>
       <div>Todo List</div>
       <div>
         <div>
