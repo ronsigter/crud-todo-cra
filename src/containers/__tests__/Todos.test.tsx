@@ -49,6 +49,6 @@ describe('Todos Container', () => {
     await waitFor(() => screen.findByTestId('todos-blank-state'))
 
     const message = screen.getByTestId('todos-blank-state-message')
-    expect(message).toHaveTextContent('you dont have any activities')
+    expect(message).toHaveTextContent('What tasks are on your mind?')
   })
 })

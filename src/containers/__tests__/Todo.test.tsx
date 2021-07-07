@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import nock from 'nock'
 import { Route, MemoryRouter } from 'react-router-dom'
 import Todo from 'containers/Todo'
+import { ToastProvider } from 'react-toast-notifications'
 import { todos as todosMock } from 'mock'
 
 describe('Todo Container', () => {
@@ -10,11 +11,13 @@ describe('Todo Container', () => {
     const queryClient = new QueryClient()
     render(
       <QueryClientProvider client={queryClient}>
-        <MemoryRouter initialEntries={['todos/1']}>
-          <Route path='todos/:id'>
-            <Todo />
-          </Route>
-        </MemoryRouter>
+        <ToastProvider>
+          <MemoryRouter initialEntries={['todos/1']}>
+            <Route path='todos/:id'>
+              <Todo />
+            </Route>
+          </MemoryRouter>
+        </ToastProvider>
       </QueryClientProvider>
     )
 

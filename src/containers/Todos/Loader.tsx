@@ -19,7 +19,6 @@ const Loader: React.FC<LoaderProps> = ({
   ids,
   isFiltering,
 }) => {
-  console.log(isFiltering)
   // filter state
   if (
     status === 'success' &&
