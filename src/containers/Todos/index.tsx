@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useToasts } from 'react-toast-notifications'
 import { useDeleteTodo, useListTodos } from 'hooks'
 import Loader from './Loader'
+import AddButton from 'component/AddButton'
 
 const Todos: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -74,6 +75,9 @@ const Todos: React.FC = () => {
         onChange={handleOnChange}
         ids={ids}
       />
+      <Link to='/create-todo'>
+        <AddButton />
+      </Link>
     </section>
   )
 }
