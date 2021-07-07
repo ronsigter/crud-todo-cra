@@ -7,7 +7,7 @@ type ToggleButtonProps = {
 
 const ToggleButton: React.FC<ToggleButtonProps> = ({ isActive, onChange }) => {
   return (
-    <div className='flex items-center justify-center w-full mb-12'>
+    <div className='flex items-center justify-center'>
       <label htmlFor='toogle' className='flex items-center cursor-pointer'>
         <div className='relative'>
           <input

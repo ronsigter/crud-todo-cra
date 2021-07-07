@@ -48,8 +48,7 @@ const Todos: React.FC = () => {
 
   return (
     <section className=''>
-      <div>Todo List</div>
-      <div>
+      {/* <div>
         <div>
           <label>search: </label>
           <input onChange={(e) => handleSearchTerm(e.target.value)} />
@@ -68,7 +67,7 @@ const Todos: React.FC = () => {
             <option value='true'>Current Activities</option>
           </select>
         </div>
-      </div>
+      </div> */}
       <Loader
         status={todosStatus}
         items={todos || []}

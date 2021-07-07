@@ -28,15 +28,21 @@ const Loader: React.FC<LoaderProps> = ({ status, items, onChange, ids }) => {
     )
   // success state
   return (
-    <div data-testid='todos-success-state'>
+    <div className='space-y-6' data-testid='todos-success-state'>
       {items.map((item, key) => (
-        <div key={key} data-testid='todos'>
+        <div
+          key={key}
+          data-testid='todos'
+          className='w-full flex rounded-md shadow px-4 py-4'
+        >
           <input
             type='checkbox'
             onChange={(e) => onChange(e.target.checked, item.id)}
             checked={ids.includes(item.id)}
           />
-          <Card todo={item} />
+          <div className='pl-4 w-full'>
+            <Card todo={item} />
+          </div>
         </div>
       ))}
     </div>
