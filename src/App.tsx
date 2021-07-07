@@ -11,7 +11,7 @@ import Layout from 'containers/Layout'
 const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ToastProvider>
+      <ToastProvider placement='top-center' autoDismiss>
         <Layout>
           <Router>
             <Switch>

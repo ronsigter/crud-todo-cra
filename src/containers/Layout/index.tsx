@@ -9,7 +9,7 @@ const Layout: React.FC = ({ children }) => {
         backgroundRepeat: 'repeat-x',
       }}
     >
-      <div className=' w-full max-w-md flex mb-4'>
+      <div className='w-full max-w-md flex mb-4'>
         <div className='pr-2'>
           <p className='text-5xl'>{date.getDate()}</p>
         </div>

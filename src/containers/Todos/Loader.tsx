@@ -5,13 +5,42 @@ import { MutationStatus } from 'react-query'
 import LoadingIcon from 'component/LoadingIcon'
 
 type LoaderProps = {
+  isFiltering: boolean
   status: MutationStatus
   items: Todos
   onChange: (isChecked: boolean, id: string | number) => void
   ids: (string | number)[]
 }
 
-const Loader: React.FC<LoaderProps> = ({ status, items, onChange, ids }) => {
+const Loader: React.FC<LoaderProps> = ({
+  status,
+  items,
+  onChange,
+  ids,
+  isFiltering,
+}) => {
+  console.log(isFiltering)
+  // filter state
+  if (
+    status === 'success' &&
+    isFiltering &&
+    (items.length === 0 || items === null)
+  )
+    return (
+      <div
+        className='flex flex-col justify-center items-center h-80'
+        data-testid='todos-filter-state'
+      >
+        <img src='/no-search.png' alt='blank' />
+        <p
+          className='capitalize pt-2 font-semibold'
+          data-testid='todos-loading-state-message'
+        >
+          No activities found
+        </p>
+      </div>
+    )
+
   // loading state
   if (status === 'loading')
     return (
