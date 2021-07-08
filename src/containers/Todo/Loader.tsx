@@ -14,14 +14,14 @@ const Loader: React.FC<LoaderProps> = ({ status, item }) => {
     return (
       <div
         className='flex flex-col justify-center items-center h-80'
-        data-testid='todos-loading-state'
+        data-testid='todo-loading-state'
       >
         <LoadingIcon />
         <p
           className='capitalize pt-2 font-semibold'
-          data-testid='todos-loading-state-message'
+          data-testid='todo-loading-state-message'
         >
-          getting activity list
+          getting activity details
         </p>
       </div>
     )
@@ -35,7 +35,7 @@ const Loader: React.FC<LoaderProps> = ({ status, item }) => {
         <img src='/no-search.png' alt='blank' />
         <p
           className='capitalize pt-2 font-semibold'
-          data-testid='todos-blank-state-message'
+          data-testid='todo-blank-state-message'
         >
           activity does not exist
         </p>
