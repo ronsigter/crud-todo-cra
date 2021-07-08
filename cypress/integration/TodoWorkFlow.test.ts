@@ -22,13 +22,13 @@ describe('Welcome page', () => {
     })
   })
 
-  it('Deletes 1 activity', () => {
+  xit('Deletes 1 activity', () => {
     cy.get('[data-cy=todos-success-state]').should('be.visible')
     cy.get('[data-cy=todos-0-checkbox]').click()
     cy.get('[data-cy=delete-button]').click()
   })
 
-  it('Deletes All Activities', () => {
+  xit('Deletes All Activities', () => {
     cy.get('[data-cy=todos-success-state]').should('be.visible')
     cy.get('[data-cy=select-all-button]').click()
     cy.get('[data-cy=delete-button]').click()

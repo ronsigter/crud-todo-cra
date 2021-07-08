@@ -14,6 +14,7 @@ const Todo: React.FC = () => {
 
   const handleOnChangeStatus = (status: boolean) => {
     updateTodo({ ...todo, isActive: status })
+    addToast('Activity Updated Successfully', { appearance: 'success' })
   }
 
   const handleOnDelete = () => {
@@ -23,18 +24,25 @@ const Todo: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='w-full flex flex-col items-center space-y-8'>
       <Loader status={status} item={todo} />
-      <Link to={`/edit/${todo?.id}`}>
-        <p>Edit</p>
-      </Link>
-      <div>
-        <button onClick={handleOnDelete}>delete</button>
-      </div>
-      <ToggleButton
-        isActive={todo?.isActive || false}
-        onChange={handleOnChangeStatus}
-      />
+
+      {todo && (
+        <>
+          <div className='flex'>
+            <Link to={`/edit/${todo?.id}`}>
+              <p>Edit</p>
+            </Link>
+            <div>
+              <button onClick={handleOnDelete}>delete</button>
+            </div>
+          </div>
+          <ToggleButton
+            isActive={todo?.isActive || false}
+            onChange={handleOnChangeStatus}
+          />
+        </>
+      )}
     </div>
   )
 }
