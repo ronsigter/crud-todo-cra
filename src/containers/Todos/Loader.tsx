@@ -90,7 +90,6 @@ const Loader: React.FC<LoaderProps> = ({
           key={key}
           data-testid='todos'
           className='w-full flex rounded-md shadow px-4 py-4 hover:shadow-lg'
-          data-cy={`todos-${item.id}`}
         >
           <input
             type='checkbox'
@@ -98,7 +97,7 @@ const Loader: React.FC<LoaderProps> = ({
             checked={ids.includes(item.id)}
             data-cy={`todos-${key}-checkbox`}
           />
-          <div className='pl-4 w-full'>
+          <div className='pl-4 w-full' data-cy={`todos-${key}`}>
             <Link to={`/todos/${item?.id}`}>
               <Card todo={item} />
             </Link>

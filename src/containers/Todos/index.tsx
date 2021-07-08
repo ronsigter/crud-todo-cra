@@ -64,6 +64,7 @@ const Todos: React.FC = () => {
             className='w-full max-w-md px-4 py-2 rounded-md bg-gray-200'
             placeholder='Search activity...'
             onChange={(e) => handleSearchTerm(e.target.value)}
+            data-cy='search-todo'
           />
         </div>
       </div>

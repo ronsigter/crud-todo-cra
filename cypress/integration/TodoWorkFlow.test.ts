@@ -22,13 +22,28 @@ describe('Welcome page', () => {
     })
   })
 
-  xit('Deletes 1 activity', () => {
+  it('Updates 2nd todo', () => {
+    cy.get('[data-cy=todos-1]').click()
+    cy.get('[data-cy=todo-edit]').click()
+    cy.get('[data-cy=title-input]').clear().type('This was touched')
+    cy.get('[data-cy=description-input]').clear().type('This one also!')
+    cy.get('[data-cy=submit-button]').click()
+  })
+
+  it('Searches and deactivates initial todo', () => {
+    cy.get('[data-cy=search-todo]').type('initial')
+    cy.get('[data-cy=todos-0]').click()
+    cy.get('[data-cy=toggle-button]').click()
+    cy.get('[data-cy=back-button]').click()
+  })
+
+  it('Deletes 1 activity', () => {
     cy.get('[data-cy=todos-success-state]').should('be.visible')
     cy.get('[data-cy=todos-0-checkbox]').click()
     cy.get('[data-cy=delete-button]').click()
   })
 
-  xit('Deletes All Activities', () => {
+  it('Deletes All Activities', () => {
     cy.get('[data-cy=todos-success-state]').should('be.visible')
     cy.get('[data-cy=select-all-button]').click()
     cy.get('[data-cy=delete-button]').click()

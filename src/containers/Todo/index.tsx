@@ -30,12 +30,15 @@ const Todo: React.FC = () => {
       {todo && (
         <>
           <div className='flex'>
-            <Link to={`/edit/${todo?.id}`}>
+            <Link to={`/edit/${todo?.id}`} data-cy='todo-edit'>
               <p>Edit</p>
             </Link>
             <div>
               <button onClick={handleOnDelete}>delete</button>
             </div>
+            <Link to='/'>
+              <p data-cy='back-button'>Back</p>
+            </Link>
           </div>
           <ToggleButton
             isActive={todo?.isActive || false}
