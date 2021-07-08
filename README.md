@@ -1,5 +1,9 @@
 # Activity Board
 
+> Deployed on https://crud-todo-cra.vercel.app/
+
+> Server is deployed on heroku
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 | Blank State                      | Search State                       | Todos                      | Form                             |
