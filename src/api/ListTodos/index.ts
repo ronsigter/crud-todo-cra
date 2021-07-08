@@ -24,11 +24,20 @@ export const ListTodos = async (params: ListTodosParams): Promise<Todos> => {
       else return `q=${term}`
     }
 
-    const queryParams = `?${byTermQuery()}&${byIsActiveQuery()}`
+    const queryParams = () => {
+      let query = ''
+      const isActiveQuery = byIsActiveQuery()
+      const termQuery = byTermQuery()
+
+      if (isActiveQuery) query = query + isActiveQuery + '&'
+      if (termQuery) query = query + termQuery
+
+      return query ? '?' + query : ''
+    }
 
     const serverPath = process.env.REACT_APP_SERVER
-      ? `${process.env.REACT_APP_SERVER}/todos${queryParams}`
-      : `/todos${queryParams}`
+      ? `${process.env.REACT_APP_SERVER}/todos${queryParams()}`
+      : `/todos${queryParams()}`
 
     const response = await fetch(serverPath)
     if (!response.ok) {
