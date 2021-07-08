@@ -26,7 +26,11 @@ export const ListTodos = async (params: ListTodosParams): Promise<Todos> => {
 
     const queryParams = `?${byTermQuery()}&${byIsActiveQuery()}`
 
-    const response = await fetch(`/todos${queryParams}`)
+    const serverPath = process.env.REACT_APP_SERVER
+      ? `${process.env.REACT_APP_SERVER}/todos${queryParams}`
+      : `/todos${queryParams}`
+
+    const response = await fetch(serverPath)
     if (!response.ok) {
       throw new Error('Problem fetching data')
     }

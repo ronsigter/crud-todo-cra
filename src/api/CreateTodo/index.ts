@@ -2,7 +2,11 @@ import { Todo } from 'GlobalTypes'
 
 export const CreateTodo = async (todo: Todo): Promise<Todo> => {
   try {
-    const response = await fetch(`/todos/`, {
+    const serverPath = process.env.REACT_APP_SERVER
+      ? `${process.env.REACT_APP_SERVER}/todos/`
+      : `/todos/`
+
+    const response = await fetch(serverPath, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

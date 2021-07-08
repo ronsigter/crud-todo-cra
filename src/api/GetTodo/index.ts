@@ -8,7 +8,11 @@ export const GetTodo = async (params: GetTodoParams): Promise<Todo> => {
   const [, { id }] = params.queryKey
 
   try {
-    const response = await fetch(`/todos/${id}`)
+    const serverPath = process.env.REACT_APP_SERVER
+      ? `${process.env.REACT_APP_SERVER}/todos/${id}`
+      : `/todos/${id}`
+
+    const response = await fetch(serverPath)
     if (!response.ok) {
       throw new Error('Problem fetching data')
     }

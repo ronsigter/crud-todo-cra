@@ -2,7 +2,11 @@ import { Todo } from 'GlobalTypes'
 
 export const UpdateTodo = async (todo: Todo): Promise<Todo> => {
   try {
-    const response = await fetch(`/todos/${todo.id}`, {
+    const serverPath = process.env.REACT_APP_SERVER
+      ? `${process.env.REACT_APP_SERVER}/todos/${todo.id}`
+      : `/todos/${todo.id}`
+
+    const response = await fetch(serverPath, {
       method: 'PUT',
       headers: {
         Accept: 'application/json',

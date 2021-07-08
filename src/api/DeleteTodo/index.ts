@@ -2,8 +2,12 @@ export const DeleteTodo = async (
   ids: (string | number)[]
 ): Promise<{ message: string }> => {
   try {
+    const serverPath = process.env.REACT_APP_SERVER
+      ? `${process.env.REACT_APP_SERVER}/todos/`
+      : `/todos/`
+
     const deleteAll = ids.map((id) =>
-      fetch(`/todos/${id}`, { method: 'DELETE' })
+      fetch(`${serverPath}${id}`, { method: 'DELETE' })
     )
     const results = await Promise.all(deleteAll)
     if (results.some((promise) => promise.ok === false)) {
